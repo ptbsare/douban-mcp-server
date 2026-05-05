@@ -66,7 +66,27 @@
 
 ### 与桌面应用集成
 
-要将此服务器与桌面应用集成，请将以下内容添加到应用的服务器配置中，部分API需要用到COOKIE，请自行获取。:
+要将此服务器与 Claude Desktop 集成，请将以下内容添加到应用的服务器配置中。部分 API 需要用到 COOKIE，请自行获取。
+
+### 方式一：npx 直接运行（推荐）
+
+```json
+{
+  "mcpServers": {
+    "douban-mcp": {
+      "command": "npx",
+      "args": [
+        "github:ptbsare/douban-mcp-server"
+      ],
+      "env": {
+        "COOKIE": "bid=;ck=;dbcl2=;frodotk_db=;"
+      }
+    }
+  }
+}
+```
+
+### 方式二：本地路径
 
 ```json
 {
@@ -77,7 +97,7 @@
         "{文件的绝对路径}/dist/index.js"
       ],
       "env": {
-        "COOKIE": "bid=;ck=;dbcl2=;frodotk_db=;" // 从网站获取 cookie 值
+        "COOKIE": "bid=;ck=;dbcl2=;frodotk_db=;"
       }
     }
   }
